@@ -63,3 +63,22 @@ footer {
   font-size: 0.9rem;
   color: #666;
 }
+
+button {
+  background-color: #e91e63; /* Elegant pink */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #c2185b;
+  transform: translateY(-2px);
+}
+
