@@ -7,111 +7,106 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
- 
-  <header>
+ 
+  <header>
 <h1>Stone Petals</h1>
 <p>Handmade Hair Bows & Crafts Made with Love 🌸</p>
 </header>
- 
-  <section class="gallery">
- 
-    <div class="item">
+ 
+  <section class="gallery">
+ 
+        <div class="item">
 <img src="https://i.ibb.co/93Nv019h/white.png" alt="Bow 1" />
 <h3>Marble Bloom</h3>
 <p>₹200</p>
-<button onclick="openRazorpay()">Buy Now</button>
+<button onclick="sendWhatsAppOrder('Marble Bloom', '₹200')">Buy Now</button>
 </div>
- 
-    <!-- Repeated Items -->
-<div class="item">
+ 
+    <div class="item">
 <img src="https://i.ibb.co/WvNSm00w/red.png" alt="Bow 2" />
 <h3>Ruby Petal</h3>
 <p>₹200</p>
-<button onclick="openRazorpay()">Buy Now</button>
+<button onclick="sendWhatsAppOrder('Ruby Petal', '₹200')">Buy Now</button>
 </div>
- 
-    <div class="item">
+ 
+    <div class="item">
 <img src="https://i.ibb.co/DgfyDZ5L/blue.png" alt="Bow 3" />
 <h3>Garba Gem</h3>
 <p>₹200</p>
-<button onclick="openRazorpay()">Buy Now</button>
+<button onclick="sendWhatsAppOrder('Garba Gem', '₹200')">Buy Now</button>
 </div>
- 
-    <div class="item">
+ 
+    <div class="item">
 <img src="https://i.ibb.co/n8NF0JtC/yellow.png" alt="Bow 4" />
 <h3>Golden Pollen</h3>
 <p>₹200</p>
-<button onclick="openRazorpay()">Buy Now</button>
+<button onclick="sendWhatsAppOrder('Golden Pollen', '₹200')">Buy Now</button>
 </div>
- 
-    <div class="item">
+ 
+    <div class="item">
 <img src="https://i.ibb.co/qYfZQLm3/peacock.png" alt="Bow 5" />
 <h3>Emerald Vine</h3>
 <p>₹200</p>
-<button onclick="openRazorpay()">Buy Now</button>
+<button onclick="sendWhatsAppOrder('Emerald Vine', '₹200')">Buy Now</button>
 </div>
- 
-     <div class="item">
+ 
+     <div class="item">
 <img src="https://i.ibb.co/yFkSzc8j/grey.png" alt="Bow 2" />
 <h3>Twilight Slate</h3>
 <p>₹200</p>
-<button onclick="openRazorpay()">Buy Now</button>
+<button onclick="sendWhatsAppOrder('Twilight Slate', '₹200')">Buy Now</button>
 </div>
- 
-     <div class="item">
+ 
+     <div class="item">
 <img src="https://i.ibb.co/DDh9dFNK/orange.png" alt="Bow 2" />
 <h3>Citrus Amber</h3>
 <p>₹200</p>
-<button onclick="openRazorpay()">Buy Now</button>
+<button onclick="sendWhatsAppOrder('Citrus Amber', '₹200')">Buy Now</button>
 </div>
- 
-     <div class="item">
+ 
+     <div class="item">
 <img src="https://i.ibb.co/xx0Xkn7/pink.png" alt="Bow 2" />
 <h3>Rose Quartz</h3>
 <p>₹200</p>
-<button onclick="openRazorpay()">Buy Now</button>
+<button onclick="sendWhatsAppOrder('Rose Quartz', '₹200')">Buy Now</button>
 </div>
- 
-     <div class="item">
+ 
+     <div class="item">
 <img src="https://i.ibb.co/ns647zNW/Violet.png" alt="Bow 2" />
 <h3>Amethyst Velvet</h3>
 <p>₹200</p>
-<button onclick="openRazorpay()">Buy Now</button>
+<button onclick="sendWhatsAppOrder('Amethyst Velvet', '₹200')">Buy Now</button>
 </div>
- 
-  </section>
- 
-  <section class="contact">
+ 
+  </section>
+ 
+  <section class="contact">
 <h2>Contact Me</h2>
 <p>Interested in something? Order now on WhatsApp!</p>
 <a class="btn" href="https://wa.me/918432120178" target="_blank">Chat on WhatsApp</a>
 </section>
- 
-  <footer>
-    © 2025 Stone Petals · Handmade with ❤️ in India
+ 
+  <footer>
+    © 2025 Stone Petals · Handmade with ❤️ in India
 </footer>
- 
-  <!-- Razorpay Script -->
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+ 
 <script>
-    function openRazorpay() {
-      var options = {
-        "key": "rzp_test_dummyKey123456", // Replace with your real Razorpay key
-        "amount": "12900", // Amount in paise (₹129.00)
-        "currency": "INR",
-        "name": "Stone Petals",
-        "description": "Purchase Elegant Bow",
-        "theme": {
-          "color": "#F37254"
-        },
-        "handler": function (response){
-          alert("Payment successful. ID: " + response.razorpay_payment_id);
-        }
-      };
-      var rzp = new Razorpay(options);
-      rzp.open();
-    }
+    // Your WhatsApp number
+    const whatsappNumber = "918432120178"; 
+
+    function sendWhatsAppOrder(productName, productPrice) {
+        // Encode the message to be safely used in a URL
+        const message = encodeURIComponent(
+            `Hello Stone Petals! I'd like to order the **${productName}** hair bow. The price is ${productPrice}. Please send me the payment link and details.`
+        );
+
+        // Construct the full WhatsApp URL
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+        // Open the URL in a new window/tab
+        window.open(whatsappURL, '_blank');
+    }
 </script>
- 
+ 
 </body>
 </html>
